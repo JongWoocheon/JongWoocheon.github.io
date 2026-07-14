@@ -51,7 +51,7 @@ $$
 假设 $y$ 是真实值，$\hat{y}$ 是估计值，可以计算平方损失：
 
 $$
-\ell(y, \hat{y}) = \frac{1}{2}(y - \hat{y})^2。
+\ell(y, \hat{y}) = \frac{1}{2}(y - \hat{y})^2
 $$
 
 - 训练损失：
@@ -253,8 +253,8 @@ def sgd(params, lr, batch_size):
 
 - 初始化参数。
 - 重复训练直到完成：
-  - 计算梯度 $g \leftarrow \partial_{(w,b)} \frac{1}{\lvert B \rvert} \sum_{i \in B} l\big(x^{(i)}, y^{(i)}, w, b\big)$。
-  - 更新参数 $(w, b) \leftarrow (w, b) - \eta g$。
+  - 计算梯度 $g \leftarrow \partial_{(w,b)} \frac{1}{\lvert B \rvert} \sum_{i \in B} l\big(x^{(i)}, y^{(i)}, w, b\big)$
+  - 更新参数 $(w, b) \leftarrow (w, b) - \eta g$
 
 在每个*迭代周期*（epoch）中，使用 `data_iter` 函数遍历整个数据集，并将训练数据集中的所有样本都使用一次。迭代周期个数 `num_epochs` 和学习率 `lr` 都是超参数，分别设为 3 和 0.03。超参数需要通过反复试验进行调整。
 
@@ -276,7 +276,7 @@ for epoch in range(num_epochs):
         print(f'epoch {epoch + 1}, loss {float(train_l.mean()):f}')
 ```
 
-[^1]: 指数据集中存在的随机误差或无关信息。这些噪声会影响数据挖掘模型的准确性和可靠性，可能来源于数据录入错误、传感器误差或数据传输中的干扰等。
+[^1]: 在机器学习中，噪声指数据集中存在的随机误差或无关信息。这些噪声会影响数据挖掘模型的准确性和可靠性，可能来源于数据录入错误、传感器误差或数据传输中的干扰等。
 
 [^2]: Matplotlib 是 Python 中经典且常用的数据可视化库，可以将数据绘制成各种图形，帮助我们直观观察数据分布、分析实验结果以及展示模型性能。
 
