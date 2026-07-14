@@ -1,21 +1,3 @@
----
-title: "线性回归"
-date: 2026-07-14
-layout: single
-permalink: /deep-learning/
-sidebar:
-  nav: docs
-toc: true
-toc_sticky: true
-categories:
-  - 深度学习
-tags:
-  - 线性回归
-  - 梯度下降
-  - PyTorch
-mathjax: true
----
-
 ## 线性回归的基本元素
 
 *线性回归*（linear regression）基于几个简单的假设：首先，假设自变量 $\mathbf{x}$ 和因变量 $y$ 之间的关系是线性的，即 $y$ 可以表示为 $\mathbf{x}$ 中元素的加权和；这里通常允许包含观测值的一些[^1]噪声。其次，我们假设噪声较为正常，例如服从正态分布。
@@ -126,6 +108,7 @@ $$
 \frac{1}{b}\sum_{i \in I_b} \ell(x_i, y_i, \mathbf{w})
 $$
 
+> [!NOTE]
 > - 梯度下降通过不断沿着负梯度方向更新参数求解。
 > - 小批量随机梯度下降是深度学习默认的求解算法。
 > - 两个重要的超参数是**批量大小** $b$ 和**学习率** $\eta$。
@@ -213,7 +196,8 @@ def linreg(X, w, b):
     return torch.matmul(X, w) + b
 ```
 
-> 上面的 $\mathbf{X}\mathbf{w}$ 是一个向量，而 $b$ 是一个标量。回想 [2.1.3 节](https://zh-v2.d2l.ai/chapter_preliminaries/ndarray.html#subsec-broadcasting)中描述的广播机制：当我们用一个向量加一个标量时，标量会被加到向量的每个分量上。
+> [!WARNING]
+> 上面的 $\mathbf{X}\mathbf{w}$ 是一个向量，而 $b$ 是一个标量。回想广播机制：当我们用一个向量加一个标量时，标量会被加到向量的每个分量上。
 
 ### 定义损失函数
 
