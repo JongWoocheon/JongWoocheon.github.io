@@ -126,10 +126,14 @@ $$
 \frac{1}{b}\sum_{i \in I_b} \ell(x_i, y_i, \mathbf{w})
 $$
 
-> [!NOTE]
-> - 梯度下降通过不断沿着负梯度方向更新参数求解。
-> - 小批量随机梯度下降是深度学习默认的求解算法。
-> - 两个重要的超参数是**批量大小** $b$ 和**学习率** $\eta$。
+<aside class="callout callout--note" role="note">
+  <p class="callout__title">NOTE</p>
+  <ul>
+    <li>梯度下降通过不断沿着负梯度方向更新参数求解。</li>
+    <li>小批量随机梯度下降是深度学习默认的求解算法。</li>
+    <li>两个重要的超参数是<strong>批量大小</strong> $b$ 和<strong>学习率</strong> $\eta$。</li>
+  </ul>
+</aside>
 
 ## 从零开始实现
 
@@ -214,8 +218,10 @@ def linreg(X, w, b):
     return torch.matmul(X, w) + b
 ```
 
-> [!WARNING]
-> 上面的 $\mathbf{X}\mathbf{w}$ 是一个向量，而 $b$ 是一个标量。回想广播机制：当我们用一个向量加一个标量时，标量会被加到向量的每个分量上。
+<aside class="callout callout--warning" role="note">
+  <p class="callout__title">WARNING</p>
+  <p>上面的 $\mathbf{X}\mathbf{w}$ 是一个向量，而 $b$ 是一个标量。回想广播机制：当我们用一个向量加一个标量时，标量会被加到向量的每个分量上。</p>
+</aside>
 
 ### 定义损失函数
 
@@ -247,7 +253,7 @@ def sgd(params, lr, batch_size):
 
 - 初始化参数。
 - 重复训练直到完成：
-  - 计算梯度 $g \leftarrow \partial_{(w,b)} \frac{1}{|B|} \sum_{i \in B} l\big(x^{(i)}, y^{(i)}, w, b\big)$。
+  - 计算梯度 $g \leftarrow \partial_{(w,b)} \frac{1}{\lvert B \rvert} \sum_{i \in B} l\big(x^{(i)}, y^{(i)}, w, b\big)$。
   - 更新参数 $(w, b) \leftarrow (w, b) - \eta g$。
 
 在每个*迭代周期*（epoch）中，使用 `data_iter` 函数遍历整个数据集，并将训练数据集中的所有样本都使用一次。迭代周期个数 `num_epochs` 和学习率 `lr` 都是超参数，分别设为 3 和 0.03。超参数需要通过反复试验进行调整。
