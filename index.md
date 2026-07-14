@@ -1,8 +1,4 @@
 ---
-layout: home
-author_profile: true
+layout: single
+permalink: /
 ---
-
-# 欢迎
-
-这里记录学习笔记与思考。

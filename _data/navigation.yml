@@ -3,3 +3,9 @@ main:
     url: /
   - title: "深度学习"
     url: /deep-learning/
+
+docs:
+  - title: "线性神经网络"
+    children:
+      - title: "线性回归"
+        url: /deep-learning/
