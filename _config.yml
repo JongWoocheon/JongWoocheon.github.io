@@ -1,0 +1,12 @@
+# GitHub Pages configuration for the Minimal Mistakes remote theme.
+remote_theme: "mmistakes/minimal-mistakes"
+
+locale: "en-US"
+title: "JongWoo Cheon"
+name: "JongWoo Cheon"
+description: "Personal website"
+url: "https://jongwoocheon.github.io"
+baseurl: ""
+
+plugins:
+  - jekyll-include-cache
