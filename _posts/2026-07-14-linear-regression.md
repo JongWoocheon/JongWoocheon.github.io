@@ -36,9 +36,9 @@ $$
 
 ### 线性模型
 
-- 给定 $n$ 维输入 $\mathbf{X} = \begin{bmatrix}x_1, x_2, \cdots, x_n\end{bmatrix}^{T}$。
-- 使用一个 $n$ 维权重和一个标量偏置：$\mathbf{w} = [w_1, w_2, \ldots, w_n]^T,\ b$。
-- 输出是输入的加权和：$y = w_1x_1 + w_2x_2 + \cdots + w_nx_n + b = \langle \mathbf{x}, \mathbf{w} \rangle + b$。
+- 给定 $n$ 维输入 $\mathbf{X} = \begin{bmatrix}x_1, x_2, \cdots, x_n\end{bmatrix}^{T}$
+- 使用一个 $n$ 维权重和一个标量偏置：$\mathbf{w} = [w_1, w_2, \ldots, w_n]^T,\ b$
+- 输出是输入的加权和：$y = w_1x_1 + w_2x_2 + \cdots + w_nx_n + b = \langle \mathbf{x}, \mathbf{w} \rangle + b$
 
 ### 损失函数
 
@@ -105,8 +105,8 @@ $$
 
 示例：最小化 $f(x) = x^2$。
 
-- 选择一个初始值 $x_0 = 4$，学习率 $\eta = 0.1$。
-- 重复迭代参数，$t = 0, 1, 2, \ldots$。
+- 选择一个初始值 $x_0 = 4$，学习率 $\eta = 0.1$
+- 重复迭代参数，$t = 0, 1, 2, \ldots$
 
 $$
 \nabla f(x_t) = f'(x_t) = 2x_t
@@ -127,7 +127,7 @@ $$
 $$
 
 <aside class="callout callout--note" role="note">
-  <p class="callout__title">NOTE</p>
+  <p class="callout__title">总结</p>
   <ul>
     <li>梯度下降通过不断沿着负梯度方向更新参数求解。</li>
     <li>小批量随机梯度下降是深度学习默认的求解算法。</li>
@@ -219,8 +219,8 @@ def linreg(X, w, b):
 ```
 
 <aside class="callout callout--warning" role="note">
-  <p class="callout__title">WARNING</p>
-  <p>上面的 $\mathbf{X}\mathbf{w}$ 是一个向量，而 $b$ 是一个标量。回想广播机制：当我们用一个向量加一个标量时，标量会被加到向量的每个分量上。</p>
+  <p class="callout__title">广播机制</p>
+  <p>上面的 $\mathbf{X}\mathbf{w}$ 是一个向量，而 $b$ 是一个标量。当我们用一个向量加一个标量时，标量会被加到向量的每个分量上。</p>
 </aside>
 
 ### 定义损失函数
