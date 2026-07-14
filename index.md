@@ -3,6 +3,6 @@ layout: home
 author_profile: true
 ---
 
-# Welcome
+# 欢迎
 
-This site is powered by the [Minimal Mistakes](https://mmistakes.github.io/minimal-mistakes/) Jekyll theme.
+这里记录学习笔记与思考。

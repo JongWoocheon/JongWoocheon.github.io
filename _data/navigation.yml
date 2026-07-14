@@ -1,0 +1,5 @@
+main:
+  - title: "首页"
+    url: /
+  - title: "深度学习"
+    url: /deep-learning/
