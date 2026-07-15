@@ -20,7 +20,7 @@ mathjax: true
 
 *线性回归*（linear regression）基于几个简单的假设：首先，假设自变量 $\mathbf{x}$ 和因变量 $y$ 之间的关系是线性的，即 $y$ 可以表示为 $\mathbf{x}$ 中元素的加权和；这里通常允许包含观测值的一些[^1]噪声。其次，我们假设噪声较为正常，例如服从正态分布。
 
-假设有 $n$ 个样本，记
+假设有 $n$ 个样本，记：
 
 $$
 \mathbf{X} =
@@ -70,7 +70,7 @@ $$
 
 ### 解析解
 
-将偏置项加入权重：
+- 将偏置项加入权重：
 
 $$
 x \leftarrow [x,1], \quad w \leftarrow \begin{bmatrix} w \\ b \end{bmatrix}
@@ -80,11 +80,10 @@ $$
 \ell(X, y, w) = \frac{1}{2n}\|y - Xw\|^2
 \qquad
 \frac{\partial}{\partial w}\ell(X,y,w)
-= \frac{1}{n}(Xw - y)^{\top}X
 = \frac{1}{n}X^{\top}(Xw - y)
 $$
 
-损失是凸函数，因此最优解满足：
+- 损失是凸函数，因此最优解满足：
 
 $$
 \frac{\partial}{\partial w}\ell(X,y,w)=0
@@ -129,9 +128,9 @@ $$
 <aside class="callout callout--note" role="note">
   <p class="callout__title">总结</p>
   <ul>
-    <li>梯度下降通过不断沿着负梯度方向更新参数求解。</li>
-    <li>小批量随机梯度下降是深度学习默认的求解算法。</li>
-    <li>两个重要的超参数是<strong>批量大小</strong> $b$ 和<strong>学习率</strong> $\eta$。</li>
+    <li>梯度下降通过不断沿着负梯度方向更新参数求解</li>
+    <li>小批量随机梯度下降是深度学习默认的求解算法</li>
+    <li>两个重要的超参数是<strong>批量大小</strong> $b$ 和<strong>学习率</strong> $\eta$</li>
   </ul>
 </aside>
 
@@ -174,7 +173,8 @@ plt.figure(figsize=(3.5, 2.5))  # 设置图像大小（单位：英寸）
 plt.scatter(features[:, 1].detach().numpy(), labels.detach().numpy(), 1)
 ```
 
-`detach()` 的作用是将张量从计算图中分离出来。Matplotlib 不需要梯度；若直接使用带梯度的张量，可能导致内存占用上升、阻碍 `.numpy()` 转换或污染梯度链路。
+`detach()` 的作用是：
+> 将张量从计算图中分离出来。Matplotlib 不需要梯度；若直接使用带梯度的张量，可能导致内存占用上升、阻碍 `.numpy()` 转换或污染梯度链路。
 
 <p align="center">
   <img src="{{ '/images/output_linear-regression-scratch_58de05_51_0.png' | relative_url }}" alt="合成数据集散点图">
@@ -251,7 +251,7 @@ def sgd(params, lr, batch_size):
 
 训练循环如下：
 
-- 初始化参数。
+- 初始化参数
 - 重复训练直到完成：
   - 计算梯度 $g \leftarrow \partial_{(w,b)} \frac{1}{\lvert B \rvert} \sum_{i \in B} l\big(x^{(i)}, y^{(i)}, w, b\big)$
   - 更新参数 $(w, b) \leftarrow (w, b) - \eta g$
@@ -278,6 +278,6 @@ for epoch in range(num_epochs):
 
 [^1]: 在机器学习中，噪声指数据集中存在的随机误差或无关信息。这些噪声会影响数据挖掘模型的准确性和可靠性，可能来源于数据录入错误、传感器误差或数据传输中的干扰等。
 
-[^2]: Matplotlib 是 Python 中经典且常用的数据可视化库，可以将数据绘制成各种图形，帮助我们直观观察数据分布、分析实验结果以及展示模型性能。
+[^2]: Matplotlib 是 **Python 中经典且常用的数据可视化库**，可以将数据绘制成各种图形，帮助我们直观观察数据分布、分析实验结果以及展示模型性能。
 
-[^3]: GPU（Graphics Processing Unit，图形处理器）是一种专门用于并行计算的处理器芯片，最初用于加速图形渲染，现在已广泛用于 AI、科学计算等通用计算场景。
+[^3]: GPU（Graphics Processing Unit，图形处理器）是一种**专门用于并行计算的处理器芯片**，最初用于加速图形渲染，现在已广泛用于 AI、科学计算等通用计算场景。
