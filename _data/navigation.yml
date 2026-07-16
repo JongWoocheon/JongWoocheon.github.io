@@ -9,3 +9,5 @@ docs:
     children:
       - title: "线性回归"
         url: /deep-learning/
+      - title: "softmax 回归"
+        url: /deep-learning/softmax-regression/
