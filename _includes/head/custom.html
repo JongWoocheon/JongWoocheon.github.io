@@ -35,6 +35,16 @@
     background: #fef3c7;
     border-color: #d97706;
   }
+
+  /* Keep display equations visually separate and readable on small screens. */
+  mjx-container[jax="CHTML"][display="true"] {
+    display: block;
+    max-width: 100%;
+    margin: 1.25em 0 !important;
+    padding: 0.35em 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
 </style>
 <script>
   window.MathJax = {
@@ -42,6 +52,10 @@
       inlineMath: [['$', '$'], ['\\(', '\\)']],
       displayMath: [['$$', '$$'], ['\\[', '\\]']],
       processEscapes: true
+    },
+    chtml: {
+      displayAlign: 'center',
+      displayIndent: '0'
     },
     options: {
       skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
