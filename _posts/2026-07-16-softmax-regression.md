@@ -7,7 +7,6 @@ sidebar:
   nav: docs
 toc: true
 toc_sticky: true
-toc_label: "Here is the code."
 categories:
   - 深度学习
 tags:
