@@ -11,3 +11,5 @@ docs:
         url: /deep-learning/
       - title: "softmax 回归"
         url: /deep-learning/softmax-regression/
+      - title: "softmax 回归 — 代码实现"
+        url: /pdf/softmax-regression.pdf
