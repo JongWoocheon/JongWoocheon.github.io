@@ -45,7 +45,7 @@ $$
 *损失函数*（loss function）能够量化目标的*实际值*与*预测值*之间的差距。
 
 <p align="center">
-  <img src="{{ '/images/fit-linreg.png' | relative_url }}" alt="线性回归损失函数示意图">
+  <img src="{{ '/images/linear-regression-residuals.png' | relative_url }}" alt="线性回归损失函数示意图">
 </p>
 
 假设 $y$ 是真实值，$\hat{y}$ 是估计值，可以计算平方损失：
@@ -114,7 +114,7 @@ x_{t+1} = x_t - \eta \cdot f'(x_t)
 $$
 
 <p align="center">
-  <img src="{{ '/images/选择学习率.png' | relative_url }}" width="339" alt="学习率示意图">
+  <img src="{{ '/images/gradient-descent-learning-rate.png' | relative_url }}" width="339" alt="学习率示意图">
 </p>
 
 ### 小批量随机梯度下降
@@ -177,7 +177,7 @@ plt.scatter(features[:, 1].detach().numpy(), labels.detach().numpy(), 1)
 > 将张量从计算图中分离出来。Matplotlib 不需要梯度；若直接使用带梯度的张量，可能导致内存占用上升、阻碍 `.numpy()` 转换或污染梯度链路。
 
 <p align="center">
-  <img src="{{ '/images/output_linear-regression-scratch_58de05_51_0.png' | relative_url }}" alt="合成数据集散点图">
+  <img src="{{ '/images/linear-regression-synthetic-data.png' | relative_url }}" alt="合成数据集散点图">
 </p>
 
 ### 读取数据集
