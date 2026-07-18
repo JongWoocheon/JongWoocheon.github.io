@@ -5,6 +5,10 @@ main:
     url: /deep-learning/
 
 docs:
+  - title: "预备知识"
+    children:
+      - title: "自动求导"
+        url: /deep-learning/autograd/
   - title: "线性神经网络"
     children:
       - title: "线性回归"
@@ -13,3 +17,15 @@ docs:
         url: /deep-learning/softmax-regression/
       - title: "softmax 回归 — 代码实现"
         url: /pdf/softmax-regression.pdf
+  - title: "多层感知机"
+    children:
+      - title: "感知机"
+        url: /deep-learning/perceptron/
+      - title: "多层感知机 — 代码实现"
+        url: /pdf/multilayer-perceptron.pdf
+      - title: "权重衰减和暂退法"
+        url: /deep-learning/weight-decay-and-dropout/
+      - title: "Dropout — 代码实现"
+        url: /pdf/dropout.pdf
+      - title: "数值稳定性、模型初始化和激活函数"
+        url: /deep-learning/numerical-stability/
