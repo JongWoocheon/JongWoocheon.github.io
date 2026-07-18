@@ -59,7 +59,7 @@ $$
 正如上图，当 sigmoid 函数的输入很大或是很小时，它的梯度都会消失。 此外，当反向传播通过许多层时，除非我们在刚刚好的地方， 这些地方 sigmoid 函数的输入接近于零，否则整个乘积的梯度可能会消失。
 
 <aside class="callout callout--note" role="note">
-  <p>我们要让训练更加稳定，即<strong>让梯度值在合理的范围内<strong>，有如下的方法：</p>
+  <p>我们要让训练更加稳定，即<strong>让梯度值在合理的范围内</strong>，有如下的方法：</p>
   <ul>
     <li>将乘法变加法：ResNet，LSTM</li>
     <li>梯度归一化，梯度裁剪</li>
