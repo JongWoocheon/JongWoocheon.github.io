@@ -2,7 +2,7 @@
 title: "线性回归"
 date: 2026-07-14
 layout: single
-permalink: /deep-learning/
+permalink: /deep-learning/linear-regression/
 sidebar:
   nav: docs
 toc: true

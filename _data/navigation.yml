@@ -8,11 +8,11 @@ docs:
   - title: "预备知识"
     children:
       - title: "自动求导"
-        url: /deep-learning/autograd/
+        url: /deep-learning/
   - title: "线性神经网络"
     children:
       - title: "线性回归"
-        url: /deep-learning/
+        url: /deep-learning/linear-regression/
       - title: "softmax 回归"
         url: /deep-learning/softmax-regression/
       - title: "softmax 回归 — 代码实现"
