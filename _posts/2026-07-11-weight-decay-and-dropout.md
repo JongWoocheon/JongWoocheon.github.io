@@ -1,5 +1,6 @@
 ---
 title: "权重衰减和暂退法"
+date: 2026-07-11
 layout: single
 permalink: /deep-learning/weight-decay-and-dropout/
 sidebar:

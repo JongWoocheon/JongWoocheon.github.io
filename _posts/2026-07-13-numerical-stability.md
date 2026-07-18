@@ -1,5 +1,6 @@
 ---
 title: "数值稳定性、模型初始化和激活函数"
+date: 2026-07-13
 layout: single
 permalink: /deep-learning/numerical-stability/
 sidebar:

@@ -1,5 +1,6 @@
 ---
 title: "感知机"
+date: 2026-07-10
 layout: single
 permalink: /deep-learning/perceptron/
 sidebar:
