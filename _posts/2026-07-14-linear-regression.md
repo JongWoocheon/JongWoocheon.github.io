@@ -114,7 +114,7 @@ x_{t+1} = x_t - \eta \cdot f'(x_t)
 $$
 
 <p align="center">
-  <img src="{{ '/images/gradient-descent-learning-rate.png' | relative_url }}" width="339" alt="学习率示意图">
+  <img src="{{ '/images/gradient-descent-learning-rate.png' | relative_url }}" width="350">
 </p>
 
 ### 小批量随机梯度下降
@@ -177,7 +177,7 @@ plt.scatter(features[:, 1].detach().numpy(), labels.detach().numpy(), 1)
 > 将张量从计算图中分离出来。Matplotlib 不需要梯度；若直接使用带梯度的张量，可能导致内存占用上升、阻碍 `.numpy()` 转换或污染梯度链路。
 
 <p align="center">
-  <img src="{{ '/images/linear-regression-synthetic-data.png' | relative_url }}" alt="合成数据集散点图">
+  <img src="{{ '/images/linear-regression-synthetic-data.png' | relative_url }}" width="350">
 </p>
 
 ### 读取数据集

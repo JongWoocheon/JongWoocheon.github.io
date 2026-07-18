@@ -42,7 +42,7 @@ $$
 - 超参数 $\lambda$ 控制了正则项的重要程度：$\lambda = 0$ （无作用）；$\lambda \rightarrow \infty, \ w^* \rightarrow 0$
 
 <p align="center">
-  <img src="{{ '/images/屏幕截图 2026-07-11 182239.png' | relative_url }}" width="339">
+  <img src="{{ '/images/屏幕截图 2026-07-11 182239.png' | relative_url }}" width="350">
 </p>
 
 ### 梯度
@@ -68,7 +68,7 @@ $$
 
 > 通常 $\eta\lambda<1$，在深度学习中通常叫做权重衰退。
 
-## 暂退法（ Dropout ）
+## 暂退法
 
 在前向传播过程中，计算每一内部层的同时注入噪声，即在训练过程中**随机失活**一些神经元，让网络不要过度依赖某些特定神经元，从而提高泛化能力。这个想法被称为*暂退法* 。
 
@@ -104,7 +104,8 @@ $$
 \end{aligned}
 $$
 
-> [!warning]
-> 训练结束后，每个参数 $w$ 已经是固定数值 。推理时只做前向传播，不计算损失，自然不需要正则化。
+<aside class="callout callout--warning" role="note">
+  <p>训练结束后，每个参数 $w$ 已经是固定数值 。推理时只做前向传播，不计算损失，自然不需要正则化。</p>
+</aside>
 
 [^1]: 正则化（regularization）是指为解决过拟合而加入额外信息的过程，用于限制模型复杂度、减少过拟合、提高泛化能力。
