@@ -1,6 +1,5 @@
 ---
 title: "线性回归"
-date: 2026-07-14
 layout: single
 permalink: /deep-learning/linear-regression/
 sidebar:
@@ -174,7 +173,10 @@ plt.scatter(features[:, 1].detach().numpy(), labels.detach().numpy(), 1)
 ```
 
 `detach()` 的作用是：
-> 将张量从计算图中分离出来。Matplotlib 不需要梯度；若直接使用带梯度的张量，可能导致内存占用上升、阻碍 `.numpy()` 转换或污染梯度链路。
+
+<aside class="callout callout--quote" role="note">
+  <p>将张量从计算图中分离出来。Matplotlib 不需要梯度；若直接使用带梯度的张量，可能导致内存占用上升、阻碍<code>.numpy()</code>转换或污染梯度链路。</p>
+</aside>
 
 <p align="center">
   <img src="{{ '/images/linear-regression-synthetic-data.png' | relative_url }}" width="350">

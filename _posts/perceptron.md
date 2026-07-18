@@ -1,6 +1,5 @@
 ---
 title: "感知机"
-date: 2026-07-18
 layout: single
 permalink: /deep-learning/perceptron/
 sidebar:
@@ -116,7 +115,9 @@ $$
 
 ## 激活函数
 
-> _激活函数_（activation function）通过计算加权和并加上偏置来确定神经元是否应该被激活， 它们将输入信号转换为输出的可微运算。 大多数激活函数都是非线性的。
+<aside class="callout callout--quote" role="note">
+  <p><i>激活函数</i>（activation function）通过计算加权和并加上偏置来确定神经元是否应该被激活， 它们将输入信号转换为输出的可微运算。 大多数激活函数都是非线性的。</p>
+</aside>
 
 ### sigmoid 激活函数
 

@@ -1,6 +1,5 @@
 ---
 title: "softmax 回归"
-date: 2026-07-16
 layout: single
 permalink: /deep-learning/softmax-regression/
 sidebar:

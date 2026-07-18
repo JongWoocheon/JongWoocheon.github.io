@@ -1,6 +1,5 @@
 ---
 title: "数值稳定性、模型初始化和激活函数"
-date: 2026-07-18
 layout: single
 permalink: /deep-learning/numerical-stability/
 sidebar:
@@ -46,9 +45,14 @@ $$
 
 如果 $d-t$ 很大，梯度的值将会很大。
 
-> [!danger] 问题
-> - 容易超出值域
-> - 对学习率敏感
+
+<aside class="callout callout--danger" role="note">
+  <p class="callout__title">问题</p>
+  <ul>
+    <li>容易超出值域</li>
+    <li>对学习率敏感</li>
+  </ul>
+</aside>
 
 ### 梯度消失
 

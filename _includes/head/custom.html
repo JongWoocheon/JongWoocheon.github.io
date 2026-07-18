@@ -6,6 +6,12 @@
     font-size: 0.875em;
     font-weight: 400;
   }
+
+  .mermaid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 </style>
 
 {% if page.mathjax %}
@@ -27,22 +33,40 @@
     margin-bottom: 0;
   }
 
-  .callout--note {
-    color: #0c4a6e;
-    background: #e0f2fe;
-    border-color: #0284c7;
+  .callout--quote {
+    color: #4a4a4a;
+    background: #f5f5f5;
+    border-color: #9d9d9d;
   }
 
-  .callout--tip {
-    color: #115e59;
-    background: #e5f8f8;
-    border-color: #14b8a6;
+  .callout--danger {
+    color: #9b1c2d;
+    background: #fdeaec;
+    border-color: #e83146;
   }
 
   .callout--question {
-    color: #713f12;
-    background: #fef3c7;
-    border-color: #d97706;
+    color: #9a4d00;
+    background: #fdf1e5;
+    border-color: #ec7400;
+  }
+
+  .callout--success {
+    color: #087a35;
+    background: #e6f8ed;
+    border-color: #08b94e;
+  }
+
+  .callout--tip {
+    color: #007878;
+    background: #e5f8f8;
+    border-color: #00bebc;
+  }
+
+  .callout--note {
+    color: #0750a0;
+    background: #e6f0fc;
+    border-color: #086ddd;
   }
 
   /* Keep display equations visually separate and readable on small screens. */

@@ -1,6 +1,5 @@
 ---
 title: "权重衰减和暂退法"
-date: 2026-07-18
 layout: single
 permalink: /deep-learning/weight-decay-and-dropout/
 sidebar:
@@ -66,7 +65,9 @@ w_{t+1}
 \frac{\partial \ell(w_t,b_t)}{\partial w_t}
 $$
 
-> 通常 $\eta\lambda<1$，在深度学习中通常叫做权重衰退。
+<aside class="callout callout--quote" role="note">
+  <p>通常 $\eta\lambda < 1$，在深度学习中通常叫做权重衰退。</p>
+</aside>
 
 ## 暂退法
 
