@@ -35,10 +35,30 @@
     border-color: #0284c7;
   }
 
-  .callout--warning {
+  .callout--tip {
+    color: #115e59;
+    background: #e5f8f8;
+    border-color: #14b8a6;
+  }
+
+  .callout--question {
     color: #713f12;
     background: #fef3c7;
     border-color: #d97706;
+  }
+
+  .image-pair {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1.25rem;
+    margin: 1.5em 0;
+  }
+
+  .image-pair img {
+    width: min(339px, 100%);
+    height: auto;
   }
 
   /* Keep display equations visually separate and readable on small screens. */
@@ -68,4 +88,14 @@
   };
 </script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+{% endif %}
+
+{% if page.mermaid %}
+<script defer src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>
+  window.addEventListener('load', function () {
+    mermaid.initialize({ startOnLoad: false, theme: 'neutral' });
+    mermaid.run({ querySelector: '.mermaid' });
+  });
+</script>
 {% endif %}
