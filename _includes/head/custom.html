@@ -1,12 +1,21 @@
 <link rel="icon" href="{{ '/favicon.ico' | relative_url }}" sizes="any">
 
-{% if page.mathjax %}
 <style>
-  /* Make lesson links in the left navigation easier to read. */
+  /* Keep emphasis scoped to the lesson link being hovered or selected. */
   .sidebar .nav__items > li > ul > li > a {
     font-size: 0.875em;
+    font-weight: 400;
   }
 
+  .sidebar .nav__items > li > ul > li > a:hover,
+  .sidebar .nav__items > li > ul > li > a.active {
+    font-size: 0.875em;
+    font-weight: 700;
+  }
+</style>
+
+{% if page.mathjax %}
+<style>
   .callout {
     margin: 1.5em 0;
     padding: 1em 1.25em;
