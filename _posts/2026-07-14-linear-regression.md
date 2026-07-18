@@ -218,7 +218,7 @@ def linreg(X, w, b):
     return torch.matmul(X, w) + b
 ```
 
-<aside class="callout callout--warning" role="note">
+<aside class="callout callout--question" role="note">
   <p class="callout__title">广播机制</p>
   <p>上面的 $\mathbf{X}\mathbf{w}$ 是一个向量，而 $b$ 是一个标量。当我们用一个向量加一个标量时，标量会被加到向量的每个分量上。</p>
 </aside>
