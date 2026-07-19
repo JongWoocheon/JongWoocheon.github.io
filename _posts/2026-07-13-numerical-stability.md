@@ -66,7 +66,7 @@ $$
 ### 梯度消失
 
 <p align="center">
-  <img src="{{ '/images/Pasted image 20260716152212.png' | relative_url }}" width="350">
+  <img src="{{ '/images/numerical-stability_01.png' | relative_url }}" width="350">
 </p>
 
 正如上图，当 sigmoid 函数的输入很大或是很小时，它的梯度都会消失。 此外，当反向传播通过许多层时，除非我们在刚刚好的地方， 这些地方 sigmoid 函数的输入接近于零，否则整个乘积的梯度可能会消失。

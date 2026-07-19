@@ -42,7 +42,7 @@ $$
 - 超参数 $\lambda$ 控制了正则项的重要程度：$\lambda = 0$ （无作用）；$\lambda \rightarrow \infty, \ w^* \rightarrow 0$
 
 <p align="center">
-  <img src="{{ '/images/屏幕截图 2026-07-11 182239.png' | relative_url }}" width="350">
+  <img src="{{ '/images/weight-decay-and-dropout_01.png' | relative_url }}" width="350">
 </p>
 
 ### 梯度
@@ -94,7 +94,7 @@ $$
 我们通常将暂退法作用在隐藏全连接层的输出上。
 
 <p align="center">
-  <img src="{{ '/images/Pasted image 20260711213515.png' | relative_url }}" width="350">
+  <img src="{{ '/images/weight-decay-and-dropout_02.png' | relative_url }}" width="350">
 </p>
 
 $$

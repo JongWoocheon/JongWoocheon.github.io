@@ -33,8 +33,8 @@ $$
 ### 训练
 
 <div class="image-row">
-  <img src="/images/屏幕截图 2026-07-09 224242.png">
-  <img src="/images/屏幕截图 2026-07-09 223916.png">
+  <img src="/images/perceptron_01.png">
+  <img src="/images/perceptron_02.png">
 </div>
 
 $$
@@ -62,7 +62,7 @@ $$
 我们可以通过在网络中加入一个或多个隐藏层来**克服线性模型的限制**， 使其能处理更普遍的函数关系类型。这种架构通常称为*多层感知机*（multilayer perceptron），通常缩写为*MLP* 。
 
 <p align="center">
-  <img src="{{ '/images/Pasted image 20260710102425.png' | relative_url }}" width="350">
+  <img src="{{ '/images/perceptron_03.png' | relative_url }}" width="350">
 </p>
 
 这个多层感知机有 4 个输入，3 个输出，其隐藏层包含 5 个隐藏单元。 输入层不涉及任何计算，因此使用此网络产生输出只需要实现隐藏层和输出层的计算。 因此，这个多层感知机中的层数为 2 。
@@ -99,7 +99,7 @@ $$
 ### 多隐藏层
 
 <p align="center">
-  <img src="{{ '/images/屏幕截图 2026-07-10 123758.png' | relative_url }}" width="350">
+  <img src="{{ '/images/perceptron_04.png' | relative_url }}" width="350">
 </p>
 
 $$
@@ -124,7 +124,7 @@ $$
 $$
 
 <p align="center">
-  <img src="{{ '/images/Pasted image 20260710111108.png' | relative_url }}" width="350">
+  <img src="{{ '/images/perceptron_05.png' | relative_url }}" width="350">
 </p>
 
 ### tanh 函数
@@ -136,7 +136,7 @@ $$
 $$
 
 <p align="center">
-  <img src="{{ '/images/Pasted image 20260710111706.png' | relative_url }}" width="350">
+  <img src="{{ '/images/perceptron_06.png' | relative_url }}" width="350">
 </p>
 
 ### ReLU 激活函数
@@ -148,5 +148,5 @@ $$
 $$
 
 <p align="center">
-  <img src="{{ '/images/Pasted image 20260710112428.png' | relative_url }}" width="350">
+  <img src="{{ '/images/perceptron_07.png' | relative_url }}" width="350">
 </p>

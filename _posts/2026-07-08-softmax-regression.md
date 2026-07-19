@@ -51,7 +51,7 @@ o_3 &= x_1w_{31}+x_2w_{32}+x_3w_{33}+x_4w_{34}+b_3.
 $$
 
 <p align="center">
-  <img src="{{ '/images/softmax-regression-network.png' | relative_url }}" width="350">
+  <img src="{{ '/images/softmax-regression_01.png' | relative_url }}" width="350">
 </p>
 
 ## 校验比例
