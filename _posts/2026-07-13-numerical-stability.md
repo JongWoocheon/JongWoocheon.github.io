@@ -32,7 +32,7 @@ $$
 
 引入如下的 MLP（为了简单省略偏移）：$\mathbf{h}^{t}=f_t(\mathbf{h}^{t-1})=\sigma(\mathbf{W}^t\mathbf{h}^{t-1}) \quad \sigma\text{ 是激活函数}$ 。
 
-令 $\mathbf{z}=\mathbf{W}^t\mathbf{h}^{t-1}$，则 $\mathbf{h}^{t}=\sigma(\mathbf{z})=\begin{bmatrix}\sigma(z_1)\\\sigma(z_2)\\\sigma(z_3)\end{bmatrix}$，所以 $\frac{\partial \mathbf{h}^{t}}{\partial \mathbf{z}}=\operatorname{diag}(\sigma'(\mathbf{z}))=\begin{bmatrix}\sigma'(z_1)&0&\cdots\\0&\sigma'(z_2)&\cdots\\\vdots&\vdots&\ddots\end{bmatrix}$ 。
+令 $\mathbf{z}=\mathbf{W}^t\mathbf{h}^{t-1}$，则 $\mathbf{h}^{t}=\sigma(\mathbf{z})=\begin{bmatrix}\sigma(z_1)\\ \sigma(z_2)\\ \sigma(z_3)\end{bmatrix}$，所以 $\frac{\partial \mathbf{h}^{t}}{\partial \mathbf{z}}=\operatorname{diag}(\sigma'(\mathbf{z}))=\begin{bmatrix}\sigma'(z_1)&0& \cdots \\ 0 & \sigma'(z_2) & \cdots \\ \vdots & vdots & \ddots \end{bmatrix}$ 。
 
 易得 $\frac{\partial \mathbf{h}^{t}}{\partial \mathbf{h}^{t-1}}=\frac{\partial \mathbf{h}^{t}}{\partial \mathbf{z}}\frac{\partial \mathbf{z}}{\partial \mathbf{h}^{t-1}}=\operatorname{diag}(\sigma'(\mathbf{W}^t\mathbf{h}^{t-1}))\mathbf{W}^t$ 。
 
@@ -64,7 +64,7 @@ $$
 正如上图，当 sigmoid 函数的输入很大或是很小时，它的梯度都会消失。 此外，当反向传播通过许多层时，除非我们在刚刚好的地方， 这些地方 sigmoid 函数的输入接近于零，否则整个乘积的梯度可能会消失。
 
 <aside class="callout callout--abstract" role="note">
-  <p>📄我们要让训练更加稳定，即<strong>让梯度值在合理的范围内</strong>，有如下的方法：</p>
+  <p>我们要让训练更加稳定，即<strong>让梯度值在合理的范围内</strong>，有如下的方法：</p>
   <ul>
     <li>将乘法变加法：ResNet，LSTM</li>
     <li>梯度归一化，梯度裁剪</li>
