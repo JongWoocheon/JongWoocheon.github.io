@@ -33,7 +33,6 @@ $$
 引入如下的 MLP（为了简单省略偏移）：$\mathbf{h}^{t}=f_t(\mathbf{h}^{t-1})=\sigma(\mathbf{W}^t\mathbf{h}^{t-1}) \quad \sigma\text{ 是激活函数}$ 。
 
 令 $\mathbf{z}=\mathbf{W}^t\mathbf{h}^{t-1}$，则有
-
 $$
 \mathbf{h}^{t}=\sigma(\mathbf{z})=\begin{bmatrix}\sigma(z_1)\\ \sigma(z_2)\\ \sigma(z_3)\end{bmatrix}
 $$
@@ -128,7 +127,7 @@ $$
 
 因为 $\mathrm{Var}[h_i^t]=\mathrm{Var}[h_j^{t-1}]$，所以 $n_{t-1}\gamma_t=1$ 。
 
-根据反向的均值和方差，我们可以得到 $n_t\gamma_t=1$ 。
+同理，根据反向的均值和方差，我们可以得到 $n_t\gamma_t=1$ 。
 
 ### Xavier 初始化
 
