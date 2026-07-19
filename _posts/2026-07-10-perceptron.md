@@ -54,7 +54,7 @@ $$
 等价于使用批量大小为 1 的梯度下降，并使用如下的损失函数：$\ell(y,x,w)=\max(0,-y\langle w,x\rangle)$ 。
 
 <aside class="callout callout--question" role="note">
-  <p class="callout__title">注意</p>
+  <p class="callout__title">⚠️注意</p>
   <p>感知机不能拟合 XOR 函数，它只能产生线性分割面。</p>
 </aside>
 
@@ -116,9 +116,7 @@ $$
 
 ## 激活函数
 
-<aside class="callout callout--quote" role="note">
-  <p><i>激活函数</i>（activation function）通过计算加权和并加上偏置来确定神经元是否应该被激活， 它们将输入信号转换为输出的可微运算。 大多数激活函数都是非线性的。</p>
-</aside>
+*激活函数*（activation function）通过计算加权和并加上偏置来确定神经元是否应该被激活， 它们将输入信号转换为输出的可微运算。 大多数激活函数都是非线性的。
 
 ### sigmoid 激活函数
 

@@ -45,7 +45,7 @@ $$
 *损失函数*（loss function）能够量化目标的*实际值*与*预测值*之间的差距。
 
 <p align="center">
-  <img src="{{ '/images/linear-regression-residuals.png' | relative_url }}" alt="线性回归损失函数示意图">
+  <img src="{{ '/images/linear-regression-residuals.png' | relative_url }}"  width="350">
 </p>
 
 假设 $y$ 是真实值，$\hat{y}$ 是估计值，可以计算平方损失：
@@ -125,8 +125,8 @@ $$
 \frac{1}{b}\sum_{i \in I_b} \ell(x_i, y_i, \mathbf{w})
 $$
 
-<aside class="callout callout--note" role="note">
-  <p class="callout__title">总结</p>
+<aside class="callout callout--abstract" role="note">
+  <p class="callout__title">📄总结</p>
   <ul>
     <li>梯度下降通过不断沿着负梯度方向更新参数求解</li>
     <li>小批量随机梯度下降是深度学习默认的求解算法</li>
@@ -173,11 +173,7 @@ plt.figure(figsize=(3.5, 2.5))  # 设置图像大小（单位：英寸）
 plt.scatter(features[:, 1].detach().numpy(), labels.detach().numpy(), 1)
 ```
 
-`detach()` 的作用是：
-
-<aside class="callout callout--quote" role="note">
-  <p>将张量从计算图中分离出来。Matplotlib 不需要梯度；若直接使用带梯度的张量，可能导致内存占用上升、阻碍<code>.numpy()</code>转换或污染梯度链路。</p>
-</aside>
+`detach()` 的作用是：将张量从计算图中分离出来。Matplotlib 不需要梯度；若直接使用带梯度的张量，可能导致内存占用上升、阻碍`.numpy()`转换或污染梯度链路。
 
 <p align="center">
   <img src="{{ '/images/linear-regression-synthetic-data.png' | relative_url }}" width="350">
@@ -221,8 +217,8 @@ def linreg(X, w, b):
     return torch.matmul(X, w) + b
 ```
 
-<aside class="callout callout--question" role="note">
-  <p class="callout__title">广播机制</p>
+<aside class="callout callout--note" role="note">
+  <p class="callout__title">💡广播机制</p>
   <p>上面的 $\mathbf{X}\mathbf{w}$ 是一个向量，而 $b$ 是一个标量。当我们用一个向量加一个标量时，标量会被加到向量的每个分量上。</p>
 </aside>
 
