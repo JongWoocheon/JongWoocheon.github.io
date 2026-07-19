@@ -32,7 +32,16 @@ $$
 
 引入如下的 MLP（为了简单省略偏移）：$\mathbf{h}^{t}=f_t(\mathbf{h}^{t-1})=\sigma(\mathbf{W}^t\mathbf{h}^{t-1}) \quad \sigma\text{ 是激活函数}$ 。
 
-令 $\mathbf{z}=\mathbf{W}^t\mathbf{h}^{t-1}$，则 $\mathbf{h}^{t}=\sigma(\mathbf{z})=\begin{bmatrix}\sigma(z_1)\\ \sigma(z_2)\\ \sigma(z_3)\end{bmatrix}$，所以 $\frac{\partial \mathbf{h}^{t}}{\partial \mathbf{z}}=\operatorname{diag}(\sigma'(\mathbf{z}))=\begin{bmatrix}\sigma'(z_1)&0& \cdots \\ 0 & \sigma'(z_2) & \cdots \\ \vdots & vdots & \ddots \end{bmatrix}$ 。
+令 $\mathbf{z}=\mathbf{W}^t\mathbf{h}^{t-1}$，则有
+
+$$
+\mathbf{h}^{t}=\sigma(\mathbf{z})=\begin{bmatrix}\sigma(z_1)\\ \sigma(z_2)\\ \sigma(z_3)\end{bmatrix}
+$$
+
+所以 
+$$
+\frac{\partial \mathbf{h}^{t}}{\partial \mathbf{z}}=\operatorname{diag}(\sigma'(\mathbf{z}))=\begin{bmatrix}\sigma'(z_1)&0& \cdots \\ 0 & \sigma'(z_2) & \cdots \\ \vdots & \vdots & \ddots \end{bmatrix}
+$$
 
 易得 $\frac{\partial \mathbf{h}^{t}}{\partial \mathbf{h}^{t-1}}=\frac{\partial \mathbf{h}^{t}}{\partial \mathbf{z}}\frac{\partial \mathbf{z}}{\partial \mathbf{h}^{t-1}}=\operatorname{diag}(\sigma'(\mathbf{W}^t\mathbf{h}^{t-1}))\mathbf{W}^t$ 。
 

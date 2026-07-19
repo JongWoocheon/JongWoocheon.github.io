@@ -32,13 +32,10 @@ $$
 
 ### 训练
 
-<p align="center">
-  <img src="{{ '/images/屏幕截图 2026-07-09 224242.png' | relative_url }}" width="350">
-</p>
-
-<p align="center">
-  <img src="{{ '/images/屏幕截图 2026-07-09 223916.png' | relative_url }}" width="350">
-</p>
+<div class="image-row">
+  <img src="/images/屏幕截图 2026-07-09 224242.png">
+  <img src="/images/屏幕截图 2026-07-09 223916.png">
+</div>
 
 $$
 \begin{aligned}

@@ -94,7 +94,7 @@ $$
 我们通常将暂退法作用在隐藏全连接层的输出上。
 
 <p align="center">
-  <img src="{{ '/images/Pasted image 20260711213515.png' | relative_url }}">
+  <img src="{{ '/images/Pasted image 20260711213515.png' | relative_url }}" width="350">
 </p>
 
 $$
