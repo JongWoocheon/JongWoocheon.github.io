@@ -69,14 +69,14 @@ $$
 
 ### 单隐藏层 — 单分类
 
-- 输入 $x \in \mathbb{R}^n$
-- 隐藏层 $W_1 \in \mathbb{R}^{m\times n} \ , \ b_1 \in \mathbb{R}^{m}$
-- 输出层 $w_2 \in \mathbb{R}^{m} \ , \ b_2 \in \mathbb{R}$
+- 输入 $\mathbf{x} \in \mathbb{R}^n$
+- 隐藏层 $\mathbf{W}_1 \in \mathbb{R}^{m\times n} \ , \ \mathbf{b}_1 \in \mathbb{R}^{m}$
+- 输出层 $\mathbf{W}_2 \in \mathbb{R}^{m} \ , \ b_2 \in \mathbb{R}$
 
 $$
 \begin{aligned}
-h &= \sigma(W_1x+b_1) \\
-o &= w_2^Th+b_2
+\mathbf{h} &= \sigma(\mathbf{W}_1\mathbf{x}+\mathbf{b}_1) \\
+o &= \mathbf{W}_2^T\mathbf{h}+b_2
 \end{aligned}
 \qquad
 \sigma \ \text{是按元素的激活函数}
