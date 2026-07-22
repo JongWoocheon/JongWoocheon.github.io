@@ -39,7 +39,7 @@ $$
 
 神经网络的前面几层应该只探索输入图像中的局部区域，而不过度在意图像中相隔较远区域的关系。
 
-当前位置只依赖附件区域：$|k|\le n$ 。
+当前位置只依赖附件区域：$\lvert k\rvert \le n$ 。
 
 $$
 W=
@@ -108,10 +108,10 @@ $$
 </p>
 
 <aside class="callout callout--success" role="note">
-  <p class="callout__title">✔️汇聚层的优势</p>
+  <p class="callout__title">✅ 汇聚层的优势</p>
   <p>1. 降低空间维度</p>
   <p>2. 提升平移不变性，对小范围的位置变化更加稳定</p>
-  <p>3. 扩大有效[^1]感受野</p>
+  <p>3. 扩大有效感受野</p>
 </aside>
 
 ## 代码实现
@@ -167,5 +167,3 @@ def corr2d_multi_in_out_1x1(X, K):
     Y = torch.matmul(K, X)  # 全连接层中的矩阵乘法
     return Y.reshape((c_o, h, w))
 ```
-
-[^1]: 感受野（Receptive Field）指的是神经网络中某一个特征图上的神经元能够看到的原始输入区域大小。

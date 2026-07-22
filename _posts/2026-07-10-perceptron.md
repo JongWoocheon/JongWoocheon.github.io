@@ -51,7 +51,7 @@ $$
 等价于使用批量大小为 1 的梯度下降，并使用如下的损失函数：$\ell(y,x,w)=\max(0,-y\langle w,x\rangle)$ 。
 
 <aside class="callout callout--question" role="note">
-  <p class="callout__title">⚠️注意</p>
+  <p class="callout__title">⚠️ 注意</p>
   <p>感知机不能拟合 XOR 函数，它只能产生线性分割面。</p>
 </aside>
 

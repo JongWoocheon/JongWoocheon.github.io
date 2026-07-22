@@ -29,7 +29,7 @@ docs:
         url: /pdf/dropout.pdf
       - title: "数值稳定性、模型初始化和激活函数"
         url: /deep-learning/numerical-stability/
-    title: "卷积神经网络"
+  - title: "卷积神经网络"
     children:
       - title: "卷积层和汇聚层"
         url: /deep-learning/convolutional-and-pooling-layers/

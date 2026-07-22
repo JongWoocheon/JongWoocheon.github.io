@@ -107,7 +107,7 @@ $$
 $$
 
 <aside class="callout callout--question" role="note">
-  <p class="callout__title">⚠️注意</p>
+  <p class="callout__title">⚠️ 注意</p>
   <p>训练结束后，每个参数 $w$ 已经是固定数值 。推理时只做前向传播，不计算损失，自然不需要正则化。</p>
 </aside>
 
