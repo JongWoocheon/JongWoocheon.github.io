@@ -108,10 +108,12 @@ $$
 </p>
 
 <aside class="callout callout--success" role="note">
-  <p class="callout__title">✅ 汇聚层的优势</p>
-  <p>1. 降低空间维度</p>
-  <p>2. 提升平移不变性，对小范围的位置变化更加稳定</p>
-  <p>3. 扩大有效感受野</p>
+  <p class="callout__title">✅汇聚层的优势</p>
+  <ul>
+    <li>降低空间维度</li>
+    <li>提升平移不变性，对小范围的位置变化更加稳定</li>
+    <li>扩大有效感受野</li>
+  </ul>
 </aside>
 
 ## 代码实现
