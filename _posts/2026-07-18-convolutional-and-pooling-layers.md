@@ -1,5 +1,5 @@
 ---
-title: "卷积层和汇聚"
+title: "卷积层和汇聚层"
 date: 2026-07-18
 layout: single
 permalink: /deep-learning/convolutional-and-pooling-layers/
