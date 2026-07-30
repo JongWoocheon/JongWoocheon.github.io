@@ -1,0 +1,38 @@
+---
+title: 个人学习笔记
+description: 记录学习过程中的知识、实践与思考。
+template: splash
+hero:
+  tagline: 把零散的知识沉淀成可以反复查阅的体系。
+  actions:
+    - text: 开始阅读
+      link: ./computer-science/
+      icon: right-arrow
+    - text: GitHub
+      link: https://github.com/JongWoocheon/learning-notes
+      icon: external
+      variant: minimal
+---
+
+import { Card, CardGrid } from "@astrojs/starlight/components";
+
+## 笔记主题
+
+<CardGrid stagger>
+  <Card title="计算机科学" icon="seti">
+    整理程序设计、数据结构、算法与计算机系统的基础知识。
+    [浏览笔记](./computer-science/)
+  </Card>
+  <Card title="人工智能" icon="open-book">
+    记录机器学习、深度学习及相关数学基础的学习过程。
+    [浏览笔记](./artificial-intelligence/)
+  </Card>
+  <Card title="工具与实践" icon="setting">
+    沉淀开发工具、知识管理和学习工作流的实践经验。 [浏览笔记](./tools/)
+  </Card>
+</CardGrid>
+
+## 关于本站
+
+本站使用 Astro 与 Starlight 构建，所有内容均由 Markdown 或 MDX 文件生成静态页面。
+笔记会随着学习持续修订，目标是保留推导过程、实践步骤和可复用的结论。
