@@ -47,7 +47,7 @@ sidebar:
 当前部署配置：
 
 - GitHub 用户名：`JongWoocheon`
-- 仓库名：`learning-notes`
-- 站点地址：`https://jongwoocheon.github.io/learning-notes/`
+- 仓库名：`JongWoocheon.github.io`
+- 站点地址：`https://jongwoocheon.github.io/`
 
-如果用户名或仓库名发生变化，需要同步更新 `astro.config.mjs` 中的 `site`、`base` 和 GitHub 链接。
+该仓库使用 GitHub Pages 用户主页地址，因此不配置 Astro `base`。如果以后迁移到普通项目仓库，需要在 `astro.config.mjs` 中增加与仓库名一致的 `base`。

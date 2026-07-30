@@ -5,7 +5,6 @@ import starlight from "@astrojs/starlight";
 // https://astro.build/config
 export default defineConfig({
   site: "https://jongwoocheon.github.io",
-  base: "/learning-notes",
   integrations: [
     starlight({
       title: "个人学习笔记",
