@@ -20,13 +20,13 @@ import { Tabs, TabItem } from "@astrojs/starlight/components";
 
 </Aside>
 
-## 使用PyTorch自动微分
+## 使用 PyTorch 自动微分
 
-PyTorch的`autograd`会在张量运算发生时动态构建计算图。只要为输入张量启用梯度记录，就可以从标量输出开始反向传播。
+PyTorch 的 `autograd` 会在张量运算发生时动态构建计算图。只要为输入张量启用梯度记录，就可以从标量输出开始反向传播。
 
 ### 标量的反向传播
 
-在我们计算$y$关于$\mathbf{x}$的梯度之前，需要一个地方来存储梯度。
+在我们计算 $y$ 关于 $\mathbf{x}$ 的梯度之前，需要一个地方来存储梯度。
 
 <Tabs syncKey="pkg">
 <TabItem label="PyTorch">
@@ -41,7 +41,7 @@ x.grad  # 默认值是 None
 </TabItem>
 </Tabs>
 
-逐元素计算$y=x^2$ 后，`y`仍然是一个向量。调用`sum()`将它聚合为标量，再执行反向传播：
+逐元素计算 $y=x^2$ 后，`y` 仍然是一个向量。调用 `sum()` 将它聚合为标量，再执行反向传播：
 
 <Tabs syncKey="pkg">
 <TabItem label="PyTorch">
@@ -70,13 +70,13 @@ $$
 
 <Aside type="note" title="为什么通常从标量开始反向传播？" icon="question-circle">
 
-若`y = torch.tensor([1.0, 2.0])`，PyTorch不知道你要求和还是求平均值。
+若 `y = torch.tensor([1.0, 2.0])` ，PyTorch 不知道你要求和还是求平均值。
 
 </Aside>
 
-### 使用`detach()`分离计算
+### 使用 `detach()` 分离计算
 
-有时只想使用一个中间结果的数值，却不希望梯度继续穿过产生它的计算过程。`detach()`会返回一个共享数据、但脱离当前计算图的新张量。
+有时只想使用一个中间结果的数值，却不希望梯度继续穿过产生它的计算过程。`detach()` 会返回一个共享数据、但脱离当前计算图的新张量。
 
 <Tabs syncKey="pkg">
 <TabItem label="PyTorch">
@@ -98,4 +98,4 @@ torch.equal(x.grad, u)
 True
 ```
 
-在`z = u * x`中，`u`被视为常量，因此$\partial z/\partial x=u$。反向传播不会把`u`重新展开为`x * x`，也就不会把`z`当成$x^3$求导。
+在 `z = u * x` 中，`u` 被视为常量，因此 $\partial z/\partial x=u$ 。反向传播不会把 `u` 重新展开为 `x * x` ，也就不会把 `z` 当成 $x^3$ 求导。

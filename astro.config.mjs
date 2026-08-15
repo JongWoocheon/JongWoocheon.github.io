@@ -1,7 +1,6 @@
 // @ts-check
 import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
-import starlightThemeNext from "starlight-theme-next";
 import { unified } from "@astrojs/markdown-remark";
 import rehypeKatex from "rehype-katex";
 import remarkMath from "remark-math";
@@ -22,7 +21,6 @@ export default defineConfig({
     starlight({
       title: "🧩Openote",
       description: "记录学习过程中的知识、实践与思考。",
-      plugins: [starlightThemeNext()],
       customCss: ["./src/styles/custom.css"],
       components: {
         Sidebar: "./src/components/sidebar/Sidebar.astro",
