@@ -1,0 +1,118 @@
+---
+interface Props {
+  class?: string;
+  label: string;
+}
+
+const { label } = Astro.props;
+---
+
+<sidebar-tabs>
+  <ul class:list={["tab-list", Astro.props.class]} data-tab-label={label}>
+    <slot name="tab-list" />
+  </ul>
+
+  <div class:list={["panels", Astro.props.class]}>
+    <slot />
+  </div>
+</sidebar-tabs>
+
+<style>
+  .tab-list {
+    list-style: none;
+    padding: 0;
+  }
+</style>
+
+<script>
+  class SidebarTabs extends HTMLElement {
+    constructor() {
+      super();
+
+      const panels = this.querySelectorAll<HTMLElement>(".panels > [id]");
+      const tabList = this.querySelector<HTMLElement>(".tab-list");
+      const tabs = tabList?.querySelectorAll<HTMLAnchorElement>("a");
+
+      if (!tabList || !tabs?.length || tabs.length !== panels.length) return;
+
+      tabList.setAttribute("role", "tablist");
+      tabList.setAttribute("aria-orientation", "vertical");
+      tabList.setAttribute(
+        "aria-label",
+        tabList.dataset.tabLabel ?? "内容分类",
+      );
+
+      let initialTab = 0;
+
+      tabs.forEach((tab, index) => {
+        const panel = panels[index];
+        const tabId = `sidebar-tab-${index}`;
+
+        tab.setAttribute("role", "tab");
+        tab.setAttribute("id", tabId);
+        tab.setAttribute("aria-controls", panel.id);
+        tab.setAttribute("tabindex", "-1");
+        tab.parentElement?.setAttribute("role", "presentation");
+
+        panel.setAttribute("role", "tabpanel");
+        panel.setAttribute("tabindex", "-1");
+        panel.setAttribute("aria-labelledby", tabId);
+        panel.hidden = true;
+
+        if ("initial" in tab.dataset && tab.dataset.initial !== "false") {
+          initialTab = index;
+        }
+
+        const activate = (event: MouseEvent) => {
+          event.preventDefault();
+          this.switchTab(index, true);
+        };
+
+        tab.addEventListener("click", activate);
+        tab.addEventListener("auxclick", activate);
+        tab.addEventListener("keydown", (event) => {
+          const targetIndex =
+            event.key === "ArrowUp" || event.key === "ArrowLeft"
+              ? (index - 1 + tabs.length) % tabs.length
+              : event.key === "ArrowDown" || event.key === "ArrowRight"
+                ? (index + 1) % tabs.length
+                : event.key === "Home"
+                  ? 0
+                  : event.key === "End"
+                    ? tabs.length - 1
+                    : null;
+
+          if (targetIndex === null) return;
+
+          event.preventDefault();
+          this.switchTab(targetIndex, true);
+        });
+      });
+
+      this.switchTab(initialTab, false);
+    }
+
+    switchTab(index: number, focus: boolean) {
+      const panels = this.querySelectorAll<HTMLElement>(".panels > [id]");
+      const tabs =
+        this.querySelectorAll<HTMLAnchorElement>(".tab-list a[role='tab']");
+
+      tabs.forEach((tab, tabIndex) => {
+        const isSelected = tabIndex === index;
+        if (isSelected) {
+          tab.setAttribute("aria-selected", "true");
+        } else {
+          tab.removeAttribute("aria-selected");
+        }
+        tab.setAttribute("tabindex", isSelected ? "0" : "-1");
+        panels[tabIndex].hidden = !isSelected;
+      });
+
+      if (focus) tabs[index]?.focus();
+    }
+  }
+
+  if (!customElements.get("sidebar-tabs")) {
+    customElements.define("sidebar-tabs", SidebarTabs);
+  }
+</script>

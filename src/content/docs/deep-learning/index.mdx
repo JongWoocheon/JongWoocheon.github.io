@@ -1,0 +1,101 @@
+---
+title: 自动求导
+description: 从计算图与链式法则出发，理解 PyTorch 自动微分的工作方式。
+sidebar:
+  order: 1
+---
+
+import { Aside, Steps } from "@astrojs/starlight/components";
+import { Tabs, TabItem } from "@astrojs/starlight/components";
+
+自动求导（automatic differentiation）把一个复杂运算拆成计算图：正向传播负责计算结果，反向传播负责沿计算图逐步传递梯度。
+
+<figure>
+  <img src="/autograd_01.png" />
+</figure>
+
+<Aside type="tip" title="核心规则" icon="notes">
+
+沿一条路径，使用链式法则把局部导数逐层相乘；当多条路径汇入同一个变量时，将各条路径贡献的梯度相加。
+
+</Aside>
+
+## 使用PyTorch自动微分
+
+PyTorch的`autograd`会在张量运算发生时动态构建计算图。只要为输入张量启用梯度记录，就可以从标量输出开始反向传播。
+
+### 标量的反向传播
+
+在我们计算$y$关于$\mathbf{x}$的梯度之前，需要一个地方来存储梯度。
+
+<Tabs syncKey="pkg">
+<TabItem label="PyTorch">
+
+```python
+x = torch.arange(4.0)
+x.requires_grad_(True)
+# 等价于 x = torch.arange(4.0, requires_grad=True)
+x.grad  # 默认值是 None
+```
+
+</TabItem>
+</Tabs>
+
+逐元素计算$y=x^2$ 后，`y`仍然是一个向量。调用`sum()`将它聚合为标量，再执行反向传播：
+
+<Tabs syncKey="pkg">
+<TabItem label="PyTorch">
+
+```python
+y = x * x
+y.sum().backward()  # 以 y 为起点，对计算图执行反向传播，并把梯度写入所有叶子节点的 .grad 中。
+x.grad  # 函数对变量 x 的梯度（偏导数）
+```
+
+</TabItem>
+</Tabs>
+
+```text
+tensor([0., 2., 4., 6.])
+```
+
+结果符合
+
+$$
+\frac{\partial}{\partial \mathbf{x}}
+\sum_i x_i^2
+=
+2\mathbf{x}
+$$
+
+<Aside type="note" title="为什么通常从标量开始反向传播？" icon="question-circle">
+
+若`y = torch.tensor([1.0, 2.0])`，PyTorch不知道你要求和还是求平均值。
+
+</Aside>
+
+### 使用`detach()`分离计算
+
+有时只想使用一个中间结果的数值，却不希望梯度继续穿过产生它的计算过程。`detach()`会返回一个共享数据、但脱离当前计算图的新张量。
+
+<Tabs syncKey="pkg">
+<TabItem label="PyTorch">
+
+```python
+x.grad.zero_()
+y = x * x
+u = y.detach()
+z = u * x
+
+z.sum().backward()
+torch.equal(x.grad, u)
+```
+
+</TabItem>
+</Tabs>
+
+```text
+True
+```
+
+在`z = u * x`中，`u`被视为常量，因此$\partial z/\partial x=u$。反向传播不会把`u`重新展开为`x * x`，也就不会把`z`当成$x^3$求导。

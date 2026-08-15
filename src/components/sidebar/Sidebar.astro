@@ -1,0 +1,166 @@
+---
+import { Icon } from "@astrojs/starlight/components";
+import SidebarPersister from "@astrojs/starlight/components/SidebarPersister.astro";
+import SidebarSublist from "@astrojs/starlight/components/SidebarSublist.astro";
+import type { StarlightRouteData } from "@astrojs/starlight/route-data";
+import MobileMenuFooter from "@astrojs/starlight/components/MobileMenuFooter.astro";
+import TabbedContent from "./TabbedContent.astro";
+import TabListItem from "./TabListItem.astro";
+import TabPanel from "./TabPanel.astro";
+
+const { sidebar } = Astro.locals.starlightRoute;
+
+type SidebarEntry = StarlightRouteData["sidebar"][number];
+type SidebarGroup = Extract<SidebarEntry, { type: "group" }>;
+
+function assertGroups(
+  entries: SidebarEntry[],
+): asserts entries is SidebarGroup[] {
+  for (const entry of entries) {
+    if (entry.type !== "group") {
+      throw new Error("侧栏的顶层项目必须是分组。");
+    }
+  }
+}
+
+function containsCurrentPage(entries: SidebarEntry[]): boolean {
+  return entries.some((entry) =>
+    entry.type === "link"
+      ? entry.isCurrent
+      : containsCurrentPage(entry.entries),
+  );
+}
+
+assertGroups(sidebar);
+
+const icons = ["information"] as const;
+const currentTabIndex = sidebar.reduce(
+  (selected, group, index) =>
+    containsCurrentPage(group.entries) ? index : selected,
+  -1,
+);
+const initialTabIndex =
+  currentTabIndex >= 0 ? currentTabIndex : Math.min(1, sidebar.length - 1);
+---
+
+<SidebarPersister>
+  <TabbedContent class="tabbed-sidebar" label="笔记分类">
+    <Fragment slot="tab-list">
+      {
+        sidebar.map(({ label }, index) => (
+          <TabListItem
+            id={`sidebar-panel-${index}`}
+            initial={index === initialTabIndex}
+            class="tab-item"
+          >
+            <Icon class="icon" name={icons[index] ?? "document"} />
+            <span>{label}</span>
+          </TabListItem>
+        ))
+      }
+    </Fragment>
+
+    {
+      sidebar.map(({ entries }, index) => (
+        <TabPanel
+          id={`sidebar-panel-${index}`}
+          initial={index === initialTabIndex}
+        >
+          <SidebarSublist sublist={entries} />
+        </TabPanel>
+      ))
+    }
+  </TabbedContent>
+</SidebarPersister>
+
+<div class="md:sl-hidden">
+  <MobileMenuFooter />
+</div>
+
+<style>
+  .tabbed-sidebar {
+    --tab-switcher-border-width: 1px;
+    --tab-switcher-padding: calc(0.25rem - var(--tab-switcher-border-width));
+    --tab-item-border-radius: 0.5rem;
+    --tab-switcher-border-radius: calc(
+      var(--tab-item-border-radius) + var(--tab-switcher-padding) +
+        var(--tab-switcher-border-width)
+    );
+    --tab-switcher-border-color: var(--sl-color-hairline-light);
+    --tab-switcher-background-color: var(
+      --sl-color-gray-7,
+      var(--sl-color-gray-6)
+    );
+    --tab-switcher-text-color: var(--sl-color-gray-3);
+    --tab-switcher-text-color-active: var(--sl-color-white);
+    --tab-switcher-icon-color: var(--sl-color-gray-4);
+    --tab-switcher-icon-color-active: var(--sl-color-text-accent);
+    --tab-item-background-color-hover: var(--sl-color-gray-6);
+    --tab-item-background-color-active: var(--sl-color-black);
+  }
+
+  :global([data-theme="dark"]) .tabbed-sidebar {
+    --tab-switcher-text-color: var(--sl-color-gray-2);
+    --tab-switcher-icon-color: var(--sl-color-gray-3);
+    --tab-item-background-color-hover: var(--sl-color-gray-5);
+  }
+
+  @media (min-width: 50rem) {
+    :global([data-theme="dark"]) .tabbed-sidebar {
+      --tab-switcher-background-color: var(--sl-color-black);
+      --tab-item-background-color-hover: var(--sl-color-gray-6);
+      --tab-item-background-color-active: var(--sl-color-gray-6);
+    }
+  }
+
+  .tabbed-sidebar.tab-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    margin-bottom: 1.5rem;
+    padding: var(--tab-switcher-padding);
+    border: var(--tab-switcher-border-width) solid
+      var(--tab-switcher-border-color);
+    border-radius: var(--tab-switcher-border-radius);
+    background-color: var(--tab-switcher-background-color);
+  }
+
+  .tab-item :global(a) {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: calc(0.5rem - var(--tab-switcher-border-width));
+    border: var(--tab-switcher-border-width) solid transparent;
+    border-radius: var(--tab-item-border-radius);
+    background-clip: padding-box;
+    color: var(--tab-switcher-text-color);
+    font-weight: 600;
+    line-height: var(--sl-line-height-headings);
+    text-decoration: none;
+  }
+
+  .tab-item :global(a:hover) {
+    color: var(--tab-switcher-text-color-active);
+    background-color: var(--tab-item-background-color-hover);
+  }
+
+  .tab-item :global(a[aria-selected="true"]) {
+    border-color: var(--tab-switcher-border-color);
+    color: var(--tab-switcher-text-color-active);
+    background-color: var(--tab-item-background-color-active);
+  }
+
+  .icon {
+    flex: 0 0 auto;
+    margin: 0.25rem;
+    color: var(--tab-switcher-icon-color);
+  }
+
+  .tab-item :global(a:hover) .icon {
+    color: inherit;
+  }
+
+  .tab-item :global(a[aria-selected="true"]) .icon {
+    color: var(--tab-switcher-icon-color-active);
+  }
+</style>

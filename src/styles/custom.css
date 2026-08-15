@@ -1,0 +1,69 @@
+@import "katex/dist/katex.min.css";
+
+:root {
+  --purple-hsl: 255, 60%, 60%;
+  --overlay-blurple: hsla(var(--purple-hsl), 0.2);
+}
+
+:root[data-theme="light"] {
+  --purple-hsl: 255, 85%, 65%;
+}
+
+[data-has-hero] .page {
+  background:
+    linear-gradient(215deg, var(--overlay-blurple), transparent 40%),
+    radial-gradient(var(--overlay-blurple), transparent 40%) no-repeat -60vw -40vh /
+      105vw 200vh,
+    radial-gradient(var(--overlay-blurple), transparent 65%) no-repeat 50%
+      calc(100% + 20rem) / 60rem 30rem;
+}
+
+[data-has-hero] .page > .header {
+  border-bottom-color: transparent;
+  background-color: transparent;
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+}
+
+:root[data-theme="light"] .site-title {
+  color: #000;
+}
+
+:root[data-theme="dark"] .site-title {
+  color: var(--sl-color-text);
+}
+
+[data-has-hero] .hero-html {
+  align-items: center;
+  justify-content: center;
+}
+
+[data-has-hero] .hero-puzzle {
+  display: inline-block;
+  font-size: clamp(6rem, 16vw, 11rem);
+  line-height: 1;
+}
+
+.sl-markdown-content .katex-display {
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-block: 0.25rem 0.75rem;
+  overscroll-behavior-inline: contain;
+  scrollbar-color: var(--sl-color-gray-4) transparent;
+  scrollbar-width: thin;
+  -webkit-overflow-scrolling: touch;
+}
+
+.sl-markdown-content .katex-display > .katex {
+  min-width: max-content;
+}
+
+.sl-markdown-content .katex-display::-webkit-scrollbar {
+  height: 0.5rem;
+}
+
+.sl-markdown-content .katex-display::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: var(--sl-color-gray-4);
+}
